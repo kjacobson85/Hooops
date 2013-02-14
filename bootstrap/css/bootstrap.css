@@ -24,7 +24,10 @@ a:hover { text-decoration: underline; }
 
 
 //** shots listing **/
-#shotsListing { font-size: 1.2em; }
+#shotsListing { 
+	font-size: 1.2em;
+
+}
 
 #shotsListing li { 
 	display: block; 
@@ -302,6 +305,10 @@ body {
   margin: 0 auto; 
   padding: 9px 15px; 
   background: #fff;
+}
+
+body .content {
+	margin-top: 200px;
 }
 
 a {
@@ -1628,7 +1635,9 @@ select:focus:invalid:focus {
 .help-inline {
   color: #595959;
 }
-
+.logo {
+	margin-left: 200px;
+}
 .help-block {
   display: block;
   margin-bottom: 10px;
@@ -4387,10 +4396,16 @@ input[type="submit"].btn.btn-mini {
   margin-left: -20px;
   font-size: 20px;
   font-weight: 200;
+  
   color: #777777;
   text-shadow: 0 1px 0 #ffffff;
 }
 
+.navbar img {
+	display: inherit; 
+	height:100px;
+	width: 100px;
+}
 .navbar .brand:hover,
 .navbar .brand:focus {
   text-decoration: none;
