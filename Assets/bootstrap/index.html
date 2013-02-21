@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Hooops | Powered By Dribbble</title>
+  <meta name="author" content="Keith Jacobson">
+  <link href="css/bootstrap.css" rel="stylesheet">
+   
+
+  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.jribbble.min.js"></script>
+<!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+		<!-- Navigation Bar -->
+	    <div class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="navbar-inner">
+	        <div class="container">
+            <ul class="nav">
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="explore.html">Explore</a></li>
+              	<li><a href="sign_up.html">Sign Up</a></li>
+            </ul>
+            <form class="navbar-form pull-right" action="../../Models/login.php" method ="post" accept-charset='UTF-8'>
+            <fieldset>
+              <input class="span2" type="text" id="username" placeholder="Email" maxlength="50">
+              <input class="span2" type="password" id ="password" placeholder="Password" maxlength="50">
+              <button type="submit" class="btn">Sign in</button>
+            </fieldset>
+            </form>
+            
+            </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <!-- Navigation Bar -->  
+    	
+			
+	<!-- API Loading -->
+	
+	<div id="content">
+  
+		<ul id="shotsListing" class="clearfix">
+			<strong>Loading...</strong>
+		</ul>
+		
+	
+    </div> <!-- /container -->
+    
+    <!-- Pagination -->
+    <div id="pagination">
+    	<nav>
+		    <a href="#" id="p1" class="pagination sel">1</a>
+		    <a href="#" id="p2" class="pagination">2</a>
+		    <a href="#" id="p3" class="pagination">3</a>
+		    <a href="#" id="p4" class="pagination">4</a>
+		    <a href="#" id="p5" class="pagination">5</a>
+		    <a href="#" id="p6" class="pagination">6</a>
+		    <a href="#" id="p7" class="pagination">7</a>
+		    <a href="#" id="p8" class="pagination">8</a>
+		    <a href="#" id="p9" class="pagination">9</a>
+	    </nav>
+
+   </div><!-- /Pagination -->
+    <div id="footer">
+    <hr>
+    	<p>Keith Jacobson | &copy;  Full Sail University 2013</p>
+    </hr>
+    </div>
+ 
+
+    </div>
+	<!-- API Loading Script -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			getShotsList(1);
+		
+			$("nav .pagination").click(function(e){
+				e.preventDefault();
+				
+				$(this).siblings(".sel").removeClass("sel");
+				$(this).addClass("sel");
+				
+				var newnum = $(this).html();
+				getShotsList(newnum);
+			});
+			
+			function getShotsList(p){
+				$.jribbble.getShotsByList("popular", function(data){
+	    		var html = [];
+	
+	    		$.each(data.shots, function (i, shot) {
+	          html.push('<li>');
+	        	html.push('<div class="details"><h3>' + shot.title + '</h3>');
+	        	html.push('<h4>by <a href="' + shot.player.url + '">' + shot.player.name + '</a></h4></div>');
+	          html.push('<a href="' + shot.url + '" target="_blank" class="linkc">');
+	          html.push('<img src="' + shot.image_teaser_url + '" alt="' + shot.title + '">');
+						html.push('</a></li>');
+	    		});
+	
+	    	$('#shotsListing').html(html.join(''));
+	    	}, {page: p, per_page: 16});			
+			}
+
+		});
+	</script>
+	<!-- API Loading Script -->
+	
+	<!-- javascript
+	================================================== -->
+    
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/jquery.jribbble.min.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+</body>
+</html>
