@@ -253,6 +253,26 @@ a:hover { text-decoration: underline; }
 	padding-bottom:50px;
 }
 
+#profile{
+	background-color: white;
+	width: 940px;
+	margin: 0px auto;
+	margin-top: 20px;
+	border:white;
+	border-radius: 10px 10px 10px 10px;
+	border-width: thick;
+}
+#profile h3{
+	text-align: left;
+	padding-left:50px;
+	padding-right:50px;
+	}
+#profile p{
+	text-align: left;
+	padding-left:50px;
+	padding-right:50px;
+	}
+	
 
 
 /** Header **/

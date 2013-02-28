@@ -32,7 +32,7 @@ if($count==1){
 
 
 
-header("location:../loggedindex.html");
+header("location:../profile.html");
 }
 else {
 echo "Wrong Username or Password";
