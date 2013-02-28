@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.25)
 # Database: Hooops
-# Generation Time: 2013-02-13 23:31:12 +0000
+# Generation Time: 2013-02-28 01:57:06 +0000
 # ************************************************************
 
 
@@ -29,13 +29,25 @@ CREATE TABLE `Login` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `username` varchar(25) NOT NULL DEFAULT '',
   `password` varchar(15) NOT NULL DEFAULT '',
-  `first` char(20) DEFAULT NULL,
-  `last` char(20) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `dob` date DEFAULT NULL,
+  `first` char(20) NOT NULL DEFAULT '',
+  `last` char(20) NOT NULL DEFAULT '',
+  `email` varchar(50) NOT NULL DEFAULT '',
+  `dob` text,
+  `bio` text,
+  `account` int(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+LOCK TABLES `Login` WRITE;
+/*!40000 ALTER TABLE `Login` DISABLE KEYS */;
+
+INSERT INTO `Login` (`id`, `username`, `password`, `first`, `last`, `email`, `dob`, `bio`, `account`)
+VALUES
+	(7,'kjacobson85','golden102','Keith','Jacobson','kjacobson85@yahoo.com','12/17/1985','I Like Turtles',NULL),
+	(8,'RookieSnookie','123454321','Bob','Smith','IDontHaveOne@yahoo.com','01/01/2001','This is my Bio',NULL);
+
+/*!40000 ALTER TABLE `Login` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 
