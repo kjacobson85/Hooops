@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Explore >> Hooops | Powered By Dribbble</title>
+  <meta name="author" content="Keith Jacobson">
+  <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+   
+
+  <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/bootstrap/js/jquery.jribbble.min.js"></script>
+<!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+		<!-- Navigation Bar -->
+	    <div class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="navbar-inner">
+	        <div class="container">
+            <ul class="nav">
+              <li><a href="loggedindex.html">Home</a></li>
+              <li class="active"><a href="loggedexplore.html">Explore</a></li>
+              <li><a href="profile.html">My Profile</a></li>
+              	<li><a href="loggedfaq.html">FAQ</a></li>
+            </ul>
+            <form class="navbar-form pull-right">
+            <p>Welcome back!!&nbsp;&nbsp;&nbsp;&nbsp;<a href="Controllers/Logout.php">Log out</a></p>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <!-- Navigation Bar -->  
+    	
+			
+	<!-- API Loading -->
+	
+	<div id="content">
+		<input id='q' type='text' placeholder="Username Search..."/>
+		<div id='searchterms'></div>
+
+			 
+			
+		
+
+		
+		<ul id="shotsListing" class="clearfix">
+			<strong>Nothing to be displayed</strong>
+		</ul>
+		
+	
+    </div> <!-- /container -->
+    
+    
+    <div id="footer">
+    <hr>
+    	<p>Keith Jacobson | &copy;  Full Sail University 2013</p>
+    	<address>
+				<a href="mailto:kjacobson85@fullsail.edu">kjacobson85@fullsail.edu</a><br>
+				<p>Phone: (772)215-1823</p> 
+			</address>
+    </hr>
+    </div>
+ 
+
+    </div>
+	<!-- API Loading Script -->
+	<script type="text/javascript">
+		var x= "";
+		$(document).ready(function(){
+			getShotsList(1);
+			
+		
+		function reloadSearch() {
+  if(!isLoading){
+      var q = $('#q').val();
+       if (q.length >= 1) {
+          isLoading = true;
+           // ajax fetch the data
+           x=q;
+           getShotsList(x);
+       
+           // enforce the delay
+           setTimeout(function(){
+             isLoading=false;
+             if(isDirty){
+               isDirty = false;
+               reloadSearch();
+             }
+           }, delay);
+       }
+     }
+};
+
+var delay = 0;
+var isLoading = false;
+var isDirty = false;
+$(document).ready(function() {
+    reloadSearch();
+  
+    $('#q').keyup(function(){
+      isDirty = true;
+      reloadSearch();
+  });
+});	
+    		
+			function getShotsList(p){
+				
+				$.jribbble.getShotsByPlayerId(x, function(data){
+	    		var html = [];
+	
+	    		$.each(data.shots, function (i, shot) {
+	          html.push('<li>');
+	        	html.push('<div class="details"><h3>' + shot.title + '</h3>');
+	        	html.push('<h4>by <a href="' + shot.player.url + '">' + shot.player.name + '</a></h4></div>');
+	          html.push('<a href="' + shot.url + '" target="_blank" class="linkc">');
+	          html.push('<img src="' + shot.image_teaser_url + '" alt="' + shot.title + '">');
+						html.push('</a></li>');
+	    		});
+	
+	    	$('#shotsListing').html(html.join(''));
+	    	}, {page: p, per_page: 50});			
+			}
+
+		});
+
+
+
+	</script>
+	<!-- API Loading Script -->
+	
+	<!-- javascript
+	================================================== -->
+     <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="assets/bootstrap/js/jquery-1.7.1.min.js"></script>
+    <script src="assets/bootstrap/js/jquery.jribbble.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-alert.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-tab.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-popover.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-button.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-typeahead.js"></script>
+</body>
+</html>

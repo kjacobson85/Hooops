@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Explore >> Hooops | Powered By Dribbble</title>
+  <title>Hooops | Powered By Dribbble</title>
   <meta name="author" content="Keith Jacobson">
-  <link href="css/bootstrap.css" rel="stylesheet">
+  <link href="assets/bootstap/css/bootstrap.css" rel="stylesheet">
    
 
-  <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css">
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.jribbble.min.js"></script>
+  <script type="text/javascript" src="assets/bootstrap/js/jquery.jribbble.min.js"></script>
 <!--[if lt IE 9]>
   <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
@@ -21,15 +21,16 @@
 	      <div class="navbar-inner">
 	        <div class="container">
             <ul class="nav">
-              <li><a href="index.html">Home</a></li>
-              <li class="active"><a href="explore.html">Explore</a></li>
-              <li><a href="sign_up.html">Sign Up</a></li>
+              <li class="active"><a href="loggedindex.html">Home</a></li>
+              <li><a href="loggedexplore.html">Explore</a></li>
+              	<li><a href="profile.html">My Profile</a></li>
+              		<li><a href="faq.html">FAQ</a></li>
             </ul>
             <form class="navbar-form pull-right">
-              <input class="span2" type="text" placeholder="Search">
-                            <button type="submit" class="btn">Submit</button>
-            </form> 
-          </div><!--/.nav-collapse -->
+            <p>Welcome back!!&nbsp;&nbsp;&nbsp;&nbsp;<a href="Controllers/Logout.php">Log out</a></p>
+            </form>
+            
+            </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
@@ -37,11 +38,18 @@
     	
 			
 	<!-- API Loading -->
+	<div id="subBar">
+	<ul class="subnav">
+              <li id="l1"><a href="#">Popular</a></li>
+              <li id="l2"><a href="#">Everyone</a></li>
+              	<li id="l3"><a href="#">Debuts</a></li>
+		</ul>
 	
+	</div>
 	<div id="content">
-  
+		
 		<ul id="shotsListing" class="clearfix">
-			<strong>Loading...</strong>
+			<p><strong>Loading...</strong><p>
 		</ul>
 		
 	
@@ -72,8 +80,10 @@
     </div>
 	<!-- API Loading Script -->
 	<script type="text/javascript">
+		var x= "popular";
 		$(document).ready(function(){
 			getShotsList(1);
+			
 		
 			$("nav .pagination").click(function(e){
 				e.preventDefault();
@@ -84,9 +94,27 @@
 				var newnum = $(this).html();
 				getShotsList(newnum);
 			});
-			
+			$("#l1").click(function(){
+				
+				x = "popular";
+				getShotsList(x);
+					
+    	});	
+    	$("#l2").click(function(){
+				x = "everyone";
+				getShotsList(x);
+				
+					
+    	});	
+		$("#l3").click(function(){
+				x = "debuts";
+				getShotsList(x);
+				
+					
+    	});		
 			function getShotsList(p){
-				$.jribbble.getShotsByList("popular", function(data){
+				
+				$.jribbble.getShotsByList(x, function(data){
 	    		var html = [];
 	
 	    		$.each(data.shots, function (i, shot) {
@@ -103,24 +131,30 @@
 			}
 
 		});
+		
+		
+		
+		
 	</script>
+	
+	
 	<!-- API Loading Script -->
 	
 	<!-- javascript
 	================================================== -->
     
-    <script src="js/jquery-1.7.1.min.js"></script>
-    <script src="js/jquery.jribbble.min.js"></script>
-    <script src="js/bootstrap-alert.js"></script>
-    <script src="js/bootstrap-modal.js"></script>
-    <script src="js/bootstrap-dropdown.js"></script>
-    <script src="js/bootstrap-scrollspy.js"></script>
-    <script src="js/bootstrap-tab.js"></script>
-    <script src="js/bootstrap-tooltip.js"></script>
-    <script src="js/bootstrap-popover.js"></script>
-    <script src="js/bootstrap-button.js"></script>
-    <script src="js/bootstrap-collapse.js"></script>
-    <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script>
+    <script src="assets/bootstrap/js/jquery-1.7.1.min.js"></script>
+    <script src="assets/bootstrap/js/jquery.jribbble.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-alert.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-tab.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-popover.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-button.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-typeahead.js"></script>
 </body>
 </html>

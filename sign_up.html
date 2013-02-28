@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Sign Up >> Hooops | Powered By Dribbble</title>
+  <meta name="author" content="Keith Jacobson">
+  <link href="assets/bootstrap/css/bootstrap.css" rel="stylesheet">
+   
+
+  <link rel="stylesheet" type="text/css" href="assets/bootstrap/css/bootstrap.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/bootstrap/js/jquery.jribbble.min.js"></script>
+<!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+</head>
+
+<body>
+		<!-- Navigation Bar -->
+	    <div class="navbar navbar-inverse navbar-fixed-top">
+	      <div class="navbar-inner">
+	        <div class="container">
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="explore.html">Explore</a></li>
+              <li class="active"><a href="sign_up.html">Sign Up</a></li>
+              	<li><a href="faq.html">FAQ</a></li>
+            </ul>
+           <form class="navbar-form pull-right" action="Controllers/checklogin.php" method ="post" accept-charset='UTF-8'>
+            <fieldset>
+              <input class="span2" type="text" id="username" placeholder="Username" name="username" maxlength="25">
+              <input class="span2" type="password" id ="password" placeholder="Password" name="password" maxlength="15">
+              <button type="submit" class="btn">Sign in</button>
+            </fieldset>
+            </form>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+    <!-- Navigation Bar -->  
+    	
+			
+	<div class="well">
+    <ul class="nav nav-tabs">
+      <li class="active"></li>
+      </ul>
+    <div id="myTabContent" class="tab-content">
+      <div class="tab-pane active in" id="home">
+      <form id="tab" name="form1" method="post" action="Controllers/code_exec.php">
+      	<tr>
+	      	<td colspan="2">
+		      	<div align="center">
+					  <?php 
+					$remarks=$_GET['remarks'];
+					if ($remarks==null and $remarks=="")
+					{
+					echo 'Register Here';
+					}
+					if ($remarks=='success')
+					{
+					echo 'Registration Success';
+					}
+					?>	
+				</div></td>
+            <label>Username</label>
+            <p>*Required</p>
+            <input type="text" value="" name="txtUser" id="txtUser" maxlength="25">
+             <label>Password</label>
+             <p>*Required</p>
+        	<input type="password" name="txtPassword" id="txtPassword" maxlength="15">
+            <label>First Name</label>
+            <p>*Required</p>
+            <input type="text" value="" name="txtName" id="txtName" maxlength="20">
+            <label>Last Name</label>
+            <p>*Required</p>
+            <input type="text" value=""name="txtLast" id="txtLast" maxlength="20">
+            <label>Email</label>
+            <p>*Required</p>
+            <input type="email" value="" class="input-xlarge" name="txtEmail" id="txtEmail" maxlength="50">
+           
+        	<label>Date of Birth</label>
+        	<h5>mm/dd/yyyy</h5>
+        	<input type="date" name="txtDob" id="txtDob" maxlength="10">
+        	<label>Bio</label>
+        	<TEXTAREA NAME="txtBio" class="input" id="txtBio" ROWS=3 COLS=30 >
+</TEXTAREA>
+        	<!--<input type="text" class="input" name="txtBio" id="txtBio" >-->
+        	            
+          	<div>
+        	    <button class="btn btn-primary" input type="submit" name="btnRegister" id="btnRegister" value="Register">Register</button>
+        </form>
+      </div>
+      </div> 
+      </div>
+      </div>
+   <div id="footer">
+    <hr>
+    	<p>Keith Jacobson | &copy;  Full Sail University 2013</p>
+    	<address>
+				<a href="mailto:kjacobson85@fullsail.edu">kjacobson85@fullsail.edu</a><br>
+				<p>Phone: (772)215-1823</p> 
+			</address>
+    </hr>
+    </div>
+ 
+
+    </div>
+	<!-- API Loading Script -->
+	
+	
+<script type="text/javascript">
+
+
+	</script>
+	<!-- API Loading Script -->
+	
+	<!-- javascript
+	================================================== -->
+    
+    <script src="assets/bootstrap/js/jquery-1.7.1.min.js"></script>
+    <script src="assets/bootstrap/js/jquery.jribbble.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-alert.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-modal.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-dropdown.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-tab.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-tooltip.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-popover.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-button.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-collapse.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-carousel.js"></script>
+    <script src="assets/bootstrap/js/bootstrap-typeahead.js"></script>
+</body>
+</html>
